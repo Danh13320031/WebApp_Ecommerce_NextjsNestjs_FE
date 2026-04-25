@@ -1,9 +1,60 @@
+/* Color setup */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 
-  /* Colors */
+  /* default colors */
+  --light-primary: #fac6a8;
   --primary: #de6824;
+  --dark-primary: #a5430a;
+
+  --light-secondary: #e7f3ff;
+  --secondary: #248ade;
+  --dark-secondary: #0a4ca5;
+
+  /* gray colors */
+  --light-gray: #f5f5f5;
+  --gray: #808080;
+  --dark-gray: #333333;
+
+  /* status colors */
+  --light-success: #b8f5e0;
+  --success: #03a170;
+  --dark-success: #00854d;
+  --light-info: #d8f2ff;
+  --info: #019cec;
+  --dark-info: #0078d4;
+  --light-warning: #fff3d2;
+  --warning: #f79500;
+  --dark-warning: #d47b00;
+  --light-error: #ffdbdb;
+  --error: #c23629;
+  --dark-error: #9e1c1c;
+
+  /* link color */
+  --link: #0000ff;
+}
+
+/* Font setup */
+:root {
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-md: 1rem; /* 16px */
+  --font-size-lg: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-xxl: 2rem; /* 32px */
+
+  --font-weight-light: 100;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+}
+
+/* Z-index setup */
+:root {
+  --z-index-header: 100;
+  --z-index-overlay: 150;
+  --z-index-modal: 200;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,7 +78,7 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  color: var(--primary);
+  color: var(--foreground);
   background: var(--background);
   font-family: var(--font-poppins);
   -webkit-font-smoothing: antialiased;
