@@ -5,4 +5,5 @@ export const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
   weight: ["100", "400", "500", "800", "900"],
+  style: ["normal", "italic"],
 });
