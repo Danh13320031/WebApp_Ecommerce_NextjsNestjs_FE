@@ -30,6 +30,14 @@ export default function ProductList() {
     [],
   );
 
+  const handlePrevPage = () => {
+    if (page > 1) setPage(page - 1);
+  };
+
+  const handleNextPage = () => {
+    if (meta && page < meta.totalPages) setPage(page + 1);
+  };
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -56,11 +64,32 @@ export default function ProductList() {
               : "Không tìm thấy sản phẩm"}
           </div>
         ) : (
-          <div className={styles.grid}>
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          <>
+            {/* Product list */}
+            <div className={styles.grid}>
+              {products.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+
+            {/* Pagination */}
+            {meta && (
+              <div className={styles.pagination}>
+                <button disabled={page <= 1} onClick={handlePrevPage}>
+                  Trước
+                </button>
+                <span className={styles.pageInfo}>
+                  Trang {page} / {meta.totalPages}
+                </span>
+                <button
+                  disabled={page >= meta.totalPages}
+                  onClick={handleNextPage}
+                >
+                  Sau
+                </button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </section>
