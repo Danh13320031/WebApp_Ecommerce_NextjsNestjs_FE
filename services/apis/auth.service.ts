@@ -1,20 +1,22 @@
 import { apiClient } from "./axios.config";
 
-export const authService = {
-  logout: async (): Promise<void> => {
+export class authService {
+  private static readonly ENDPOINT = "/auth";
+
+  static async logout(): Promise<void> {
     try {
-      await apiClient.post("/auth/logout");
+      await apiClient.post(`${this.ENDPOINT}/logout`);
     } catch (error) {
       console.error("Lỗi đăng xuất::: ", error);
     }
-  },
+  }
 
-  refreshToken: async (refreshToken: string): Promise<string | null> => {
+  static async refreshToken(refreshToken: string): Promise<string | null> {
     if (!refreshToken) return null;
 
     try {
       const response = await apiClient.post<{ accessToken: string }>(
-        "/auth/refresh",
+        `${this.ENDPOINT}/refresh`,
         {
           refreshToken,
         },
@@ -26,5 +28,5 @@ export const authService = {
       console.error("Token không hợp lệ::: ", error);
       return null;
     }
-  },
-};
+  }
+}
