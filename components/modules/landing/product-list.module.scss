@@ -56,5 +56,37 @@
       padding: 4rem 1rem;
       color: var(--light-gray);
     }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 3rem;
+
+      button {
+        padding: 0.5rem 1rem;
+        background: var(--dark-gray);
+        color: white;
+        font-weight: var(--font-weight-medium);
+        font-size: var(--font-size-sm);
+        border: 1px solid var(--dark-gray);
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover:not(:disabled) {
+          background: white;
+          border: 1px solid var(--dark-gray);
+          color: var(--dark-gray);
+        }
+      }
+
+      .pageInfo {
+        color: var(--light-gray);
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-regular);
+      }
+    }
   }
 }
